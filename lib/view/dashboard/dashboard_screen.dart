@@ -3,6 +3,7 @@ import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:get/get.dart';
 
 import '../../controller/dashboard_controller.dart';
+import '../home/home_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -15,7 +16,7 @@ class DashboardScreen extends StatelessWidget {
           child: IndexedStack(
             index: controller.tabIndex,
             children: [
-              Container(),
+              const HomeScreen(),
               Container(
                 color: Colors.red,
               ),
