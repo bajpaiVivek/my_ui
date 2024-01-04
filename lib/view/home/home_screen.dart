@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
         const MainHeader(),
         Obx(() {
           if (homeController.isProductLoading.value) {
-            return const CircularProgressIndicator(); // or any loading widget
+            return const CircularProgressIndicator();
           } else {
             return Expanded(
               child: ListView.builder(
@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8.0),
                             image: DecorationImage(
                               image: NetworkImage(product.image),
-                              fit: BoxFit.cover,
+                              fit: BoxFit.contain,
                             ),
                           ),
                         ),
@@ -55,15 +55,18 @@ class HomeScreen extends StatelessWidget {
                                 maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                              Text('Category: ${product.category}'),
+                              Text('${product.category}'),
+                              Padding(
+                                padding: EdgeInsets.zero,
+                                child: Column(
+                                  children: [
+                                    Text('Ratings: ${product.rating.rate}'),
+                                    Text('${product.rating.count} ratings'),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
-                        ),
-                        Column(
-                          children: [
-                            Text('Ratings: ${product.rating.rate}'),
-                            Text('${product.rating.count} ratings'),
-                          ],
                         ),
                       ],
                     ),

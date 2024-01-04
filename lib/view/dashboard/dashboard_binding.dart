@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:my_ui/controller/category_controller.dart';
 import 'package:my_ui/controller/dashboard_controller.dart';
 
 import '../../controller/home_controller.dart';
@@ -8,5 +9,6 @@ class DashboardBinding extends Bindings {
   void dependencies() {
     Get.put(DashboardController());
     Get.put(HomeController());
+    Get.put(CategoryController());
   }
 }
